@@ -196,7 +196,7 @@ parser.add_argument('-o', '--status-off',
 parser.add_argument('-s', '--speed',
                     help='speed, integer up to 100. Default=85',
                     default=85,
-                    type=int)
+                    type=float)
 parser.add_argument('-t', '--time',
                     help='time. See details below',
                     type=int)
@@ -745,7 +745,7 @@ def _main(screen):
                 canvas.size_changed = True
 
             # Add delay before next loop
-            curses.napms(key.delay)
+            curses.napms(int(round(key.delay)))
 
             # update async clock
             if async_clock:
